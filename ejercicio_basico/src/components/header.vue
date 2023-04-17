@@ -1,6 +1,11 @@
 <template>
-    <h1>Hello Vue</h1>
-  </template>
+    <h1>Search company: </h1>
+    <form>
+      <label for="filter"></label>
+      <input type="text" id="filter" name="filter" />
+      <button type="button">Search</button>
+    </form>
+</template>
    
   <script lang="ts">
   import { defineComponent } from "vue";
