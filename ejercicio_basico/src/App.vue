@@ -1,23 +1,28 @@
+<template>
+  <div>
+    <Header @send-info="handleSendInfo" />
+    <RouterView :info="organization" />
+  </div>
+</template>
+
 <script lang="ts">
-import { defineComponent } from 'vue';
+import { defineComponent, ref } from 'vue';
 import Header from './components/header.vue';
-import List from './components/list.vue'
-import Detail from './components/detail.vue'
+import List from './components/list.vue';
 
 export default defineComponent({
   components: {
     Header,
     List,
-    Detail,
+  },
+  setup() {
+    const organization = ref('lemoncode');
+
+    function handleSendInfo(info: string) {
+      organization.value = info;
+    }
+
+    return { organization, handleSendInfo };
   },
 });
 </script>
-
-
-
-
-<template>
-  <Header></Header>
-
-  <RouterView />
-</template>

@@ -28,29 +28,28 @@
 </template>
 
 <script lang="ts">
-import { User } from '@/types';
+import { Member } from '@/types';
 import axios from 'axios';
 import { defineComponent } from 'vue'
 
 export default defineComponent({
-    name: "List",
+    name: "Detail",
     data () {
         return {
-            member:[] as unknown as User
+            member:[] as unknown as Member
         }
     },
     async created() {
-        let uri: String[] = window.location.href.split('/');
-        const memberLogin: String = uri[4]
+        let uri: string[] = window.location.href.split('/');
+        const memberLogin: string = uri[4]
         await this.retrieveMember(memberLogin);
     },
     methods: {
-        async retrieveMember(memberLogin: String) {
+        async retrieveMember(memberLogin: string) {
            axios 
             .get(`https://api.github.com/users/${memberLogin}`)
             .then((result) => {
                 this.member = result.data;
-                console.log(this.member);
             })
             .catch(error => {
                 console.log(error);
@@ -59,7 +58,6 @@ export default defineComponent({
     }
   
 })
-
 </script>
 
 <style>
@@ -103,7 +101,4 @@ p {
 h3 {
     margin-bottom: 0.3em;
 }
-
-
-
 </style>

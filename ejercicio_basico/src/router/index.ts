@@ -1,23 +1,23 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
-import DetailView from '../views/DetailView.vue'
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
+import List from '@/components/list.vue';
+import Detail from '@/components/detail.vue';
 
 const routes: Array<RouteRecordRaw> = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'List',
+    component: List,
   },
   {
     path: '/detail/:login',
-    name: 'detail',
-    component: DetailView
+    name: 'Detail',
+    component: Detail,
   },
-]
+];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
